@@ -18,8 +18,18 @@
       --highlight-bg: #e0e7ff;
       --highlight-border: #1d4ed8;
       --background: #ffffff;
-    }
 
+      --border: ED3500;
+      --item-bg: #ffffff;
+    }
+@media (prefers-color-scheme: dark) {
+     :root {
+        --background: #1e1b2e;
+       --primary-color: #ED3500;
+        --border: #9e8fbf;
+        --item-bg: #2a2540;
+     }
+}
     body {
       background-color: var(--background);
       font-family: 'Poppins', sans-serif;
@@ -58,8 +68,8 @@
 
     .item {
       display: inline-block;
-      background-color: #fff;
-      border: 1px solid #e5e7eb;
+      background-color: var(--item-bg);
+      border: 1px solid var(--border);
       border-radius: 30px;
       padding: 5px 10px;
       margin: 4px;
@@ -74,10 +84,10 @@
     }
 
     .pillar-card {
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 12px;
-      background-color: white;
+      background-color: var(--item-bg);
       margin-bottom: 10px;
     }
 

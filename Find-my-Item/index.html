@@ -47,10 +47,10 @@
         box-sizing: border-box;
         user-select: none;
         }
-    container { background-color: none; }
+    container { background-color: var(--background); }
     .card {
       border: none;
-      background-color: none;
+      background-color: var(--background);
     }
 
     .custom-color {
@@ -89,7 +89,7 @@
     }
 
     .pillar-card {
-      border: 1px solid var(--border);
+      border: 3px solid var(--border);
       border-radius: 16px;
       padding: 12px;
       background-color: var(--item-bg);
@@ -97,7 +97,7 @@
     }
 
     .wall-section {
-      border: 1px dashed var(--primary-color);
+      border: 3px dashed var(--primary-color);
       padding: 12px;
       border-radius: 16px;
       margin-bottom: 20px;

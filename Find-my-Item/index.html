@@ -41,7 +41,7 @@
 
     .search-box:focus {
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.2rem rgba(30, 64, 175, 0.25);
+     /* box-shadow: 0 0 0 0.2rem rgba(30, 64, 175, 0.25); */
     }
 
     .bi-search {
@@ -139,6 +139,11 @@
 </head>
 
 <body>
+
+  <h1 class="text-center mb-4 custom-color" aria-label="Item Code Locator">
+     <i class="bi bi-box-seam" aria-hidden="true"></i> Item Code Locator
+ </h1>
+  
   <!-- Sticky Header with Search -->
   <div class="sticky-header">
     <div class="container">
@@ -161,10 +166,6 @@
 
   <div class="container py-2">
     <div class="card p-1">
-      <h1 class="text-center mb-4 custom-color" aria-label="Item Code Locator">
-        <i class="bi bi-box-seam" aria-hidden="true"></i> Item Code Locator
-      </h1>
-
       <!-- All Data -->
       <div id="allData" class="row gy-3" role="region" aria-live="polite"></div>
     </div>

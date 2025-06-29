@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item Locator</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #1d4ed8;
+      --highlight-bg: #e0e7ff;
+      --highlight-border: #1d4ed8;
+      --background: #ffffff;
+    }
+
+    body {
+      background-color: var(--background);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      border: none;
+    }
+
+    .custom-color {
+      color: var(--primary-color);
+    }
+
+    .search-box {
+      border-radius: 50px;
+      padding-left: 40px;
+    }
+
+    .search-box:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(30, 64, 175, 0.25);
+    }
+
+    .bi-search {
+      position: absolute;
+      left: 14px;
+      top: 7px;
+      color: #999;
+      font-size: 18px;
+    }
+
+    .item {
+      display: inline-block;
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 30px;
+      padding: 5px 10px;
+      margin: 4px;
+      transition: 0.2s;
+    }
+
+    .item.highlight {
+      background-color: var(--highlight-bg);
+      border-color: var(--highlight-border);
+      color: var(--highlight-border);
+      font-weight: 600;
+    }
+
+    .pillar-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 12px;
+      background-color: white;
+      margin-bottom: 10px;
+    }
+
+    .wall-section {
+      border: 2px dashed var(--primary-color);
+      padding: 12px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .wall-title {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container py-2">
+  <div class="card p-1">
+    <h3 class="text-center mb-4 custom-color">
+      <i class="bi bi-box-seam"></i> Item Code Locator
+    </h3>
+
+    <!-- Search -->
+    <div class="position-relative mb-4">
+      <i class="bi bi-search"></i>
+      <input id="searchInput" type="search" class="form-control search-box" placeholder="Search Code or Name">
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="alert alert-info d-none"></div>
+
+    <!-- All Data -->
+    <div id="allData" class="row gy-3"></div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const wallData = {
+    "North Wall": [
+      { code: "Z19875", name: "Jule Mule Beigh TPR + Olive Pu FB" },
+      { code: "Z20385", name: "TAZO" }, 
+      { code: "Z19373/Z21300", name: "Blossom Blue FB" }, 
+      { code: "Z20506", name: "GARRY PU Blk Sole" }, 
+      { code: "Z18348/Z18349", name: "Alyo-Wht+blk" }, 
+      { code: "Z19570/Z19571", name: "BRIZO Navy Sole,Blk,Wht" }, 
+      { code: "Z18350/Z18351", name: "Aloys Phlon + wht, gry, grn tpr aloy" }, 
+      { code: "Z17859", name: "Luke Pylon  wht, blk sole" }, 
+      { code: "Z19714", name: "Pikacho Tpr Brown Sole" }, 
+      { code: "Z08438", name: "Jaguar blk" },
+      { code: "Z21286", name: "Lagosh BRN" }
+    ],
+    "South Wall": [
+      { code: "Z20271", name: "Flex 4U(1036) Eva Sole" },
+      { code: "Z20510", name: "SuperStride Pvc Blk Sole" },
+      { code: "Z15408", name: "Naughty Boy (IV) blk pvc sole" },
+      { code: "Z20508", name: "Max Pvc Blk Sole" },
+      { code: "Z21125", name: "Nwalk 5.0 grey" }, 
+      { code: "Z17057", name: "Carson Brough TPR Blk Sole" },
+      { code: "Z21259", name: "KAMET-TUPL" },
+      { code: "Z20507", name: "Hindi PVC Black Sole" },
+      { code: "Z21369", name: "Dolores 3.0 Pink Woman" },
+      { code: "Z18276/Z21287", name: "Mascot PE Black Sole" },
+      { code: "Z08873", name: "Tapan TPR Black Sole" }
+    ],
+    "East Wall": [
+      { code: "Z22210", name: "NP-50231-Blk PGreen" },
+      { code: "Z21599", name: "Diamonty-wmens TPR Honey Sole" },
+      { code: "Z21557", name: "DGray/N.Blu" },
+      { code: "Z22070", name: "Atizona Blk/Gry" },
+      { code: "Z21124", name: "N-walk 5.0 black" },
+      { code: "Z22071", name: "Don't know" },
+      { code: "Z21482", name: "Venta EVA Blk Sole" },
+      { code: "Z17614", name: "Phylon Wh+blk sole" },
+      { code: "Z17614", name: "KPU Knitted blk+white" }, 
+      { code: "Z20282/Z21290", name: "Stannis open blk sole" }, 
+      { code: "Z20512", name: "Arizona Blk/Gry+Eva Blk fb" }, 
+      { code: "Z20382/Z20450", name: "Logan" }
+    ],
+    "West Wall": [
+      { code: "Z19098", name: "Power Soft W footbed coral" },
+      { code: "Z21074", name: "Arizona Blk/Pgrn" },
+      { code: "Z21150", name: "Milano Thong Solemate Thong" },
+      { code: "Z20235", name: "New KRYPTON Blk Sole" },
+      { code: "Z21893", name: "Merge Blk Sole" },
+      { code: "Z20173", name: "BRYAN (Geo) Pu blk Sole" },
+      { code: "Z21293", name: "BRYAN (Geo) Pu blk Sole" },
+      { code: "Z21151", name: "Milano Toe-Ring Solemate toe Ring Pu" },
+      { code: "W001", name: "Item West 1" },
+      { code: "W002", name: "Item West 2" }
+    ]
+  };
+
+  const columnData = {
+    "Column A": {
+      "Pillar A1": [
+        { code: "Z21354", name: "Arga Thong wsl-64243 TPR sl Hny + D.beg" },
+        { code: "Z20449", name: "Cedric Tpr Blk Sole" }, 
+        { code: "Z21556", name: "Pune TPR Sole (hulk)" }
+      ],
+      "Pillar A2": [
+        { code: "Z21346", name: "Karter-phylon june sole-lt-beige" }, 
+        { code: "Z21353", name: "Arya Thong-wsl-64243" }, 
+        { code: "Z20386", name: "Varys-Language Blk Sole" }
+      ],
+      "Pillar A3": [
+        { code: "A201", name: "Superman" }
+      ],
+      "Pillar A4": [
+        { code: "A201", name: "Superman" }
+      ],
+      "Pillar A5": [
+        { code: "Z19061", name: "DUNE (lettuce) TPR Sole blk" }, 
+        { code: "Z20401", name: "RBL Blk Sole" }, 
+        { code: "Z22058", name: "Plasma Blk Sole" }
+      ]
+    },
+    "Column B": {
+      "Pillar B1": [
+        { code: "Z20511", name: "Mocassino pvc blk sole" },
+        { code: "Z20981", name: "Stripe navy fb" }
+      ],
+      "Pillar B2": [
+        { code: "Z20921", name: "Paper TPR Blk sole" },
+        { code: "Z21302", name: "JEM TAN" },
+        { code: "Z19874", name: "Jule mule blk tpr sole" }
+      ],
+      "Pillar B3": [
+        { code: "Z20520", name: "Comfy blue pu fb + hny TPR" }, 
+        { code: "Z20912", name: "Tony pvc Black Sole" }
+      ],
+      "Pillar B4": [
+        { code: "Z21074", name: "Arizona Sandel 3.0" }, 
+        { code: "Z20383", name: "Arizona TH blk/hny + eva olv fb" }, 
+        { code: "Z21304", name: "Gem blk FB" }, 
+        { code: "Z21524", name: "Dennis" }
+      ],
+      "Pillar B5": [
+        { code: "Z18347", name: "KR-28 / Kingston Brn" }, 
+        { code: "Z20236", name: "Kripton brn" },
+        { code: "Z21245", name: "Kripton brn" },
+        { code: "B301", name: "Spiderman" }
+      ]
+    },
+    "Column C": {
+      "Pillar C1": [
+        { code: "Z21475", name: "Cong Tpr Honny Sole+EVA Blk" },
+        { code: "C102", name: "Black Panther" }
+      ],
+      "Pillar C2": [
+        { code: "Z20980", name: "STRIPE Olive Fb" },
+        { code: "Z19877", name: "Jule Thong Black Tpr Sole + Pu Fb" },
+        { code: "Z21298", name: "Blossom Gray" }
+      ],
+      "Pillar C3": [
+        { code: "Z20172", name: "Crice EVA sole white" }, 
+        { code: "Z20181", name: "Crice PU footbed Orange" }, 
+        { code: "Z20384", name: "ARIZONA gry/nvy + eva blu fb" }
+      ],
+      "Pillar C4": [
+        { code: "Z14349", name: "Macho clay classic Brn sole" }, 
+        { code: "Z21299", name: "Blossom Black" }, 
+        { code: "Z21111", name: "KEMP hny with lt brn welt" }
+      ],
+      "Pillar C5": [
+        { code: "Z14348", name: "Macho Clay blk pvc sole" }, 
+        { code: "Z19096", name: "power Soft w eva sole" }, 
+        { code: "Z19097", name: "Power Soft w Footbed drk gray" }, 
+        { code: "C301", name: "Vision" }
+      ]
+    }, 
+    "Column D": {
+      "Pillar D1": [
+        { code: "Z19878", name: "Jule Thong beig Sl,olive" },
+        { code: "Z21111", name: "KEMP TPR hny white with LT.brn welt" }
+      ],
+      "Pillar D2": [
+        { code: "Z01953", name: "kr-28/Kingston blk pu sole" },
+        { code: "Z21283", name: "kr-28/Kingston blk pu sole" },
+        { code: "Z01898", name: "Bangkok t/t pu sole" }, 
+        { code: "Z21281", name: "Bangkok t/t pu sole" }
+      ],
+      "Pillar D3": [
+        { code: "Z21764", name: "Celina sole wht - cleo" }, 
+        { code: "Z19582", name: "Anjali Aroma pe Tan sole" }, 
+        { code: "Z21288", name: "Anjali Aroma pe Tan sole" }
+      ],
+      "Pillar D4": [
+        { code: "Z20519", name: "Compy blk fb+olive tpr sole" }, 
+        { code: "D301", name: "Spiderman" }
+      ]
+    }
+  };
+
+  const searchInput = document.getElementById("searchInput");
+  const result = document.getElementById("result");
+  const allData = document.getElementById("allData");
+
+  const itemElements = [];
+
+  // Render Wall Data
+  for (let wall in wallData) {
+    const wallDiv = document.createElement("div");
+    wallDiv.className = "wall-section col-12";
+    wallDiv.innerHTML = `<h5 class="wall-title"><i class="bi bi-bounding-box-circles"></i> ${wall}</h5>`;
+
+    const itemsHTML = wallData[wall].map(item => {
+      const span = document.createElement('span');
+      span.className = 'item';
+      span.dataset.code = item.code.toUpperCase();
+      span.dataset.name = item.name.toUpperCase();
+      span.dataset.wall = wall;
+      span.innerHTML = `<strong>${item.name}</strong> (${item.code}) <br><small>${wall}</small>`;
+      itemElements.push(span);
+      return span.outerHTML;
+    }).join(' ');
+
+    wallDiv.innerHTML += `<div>${itemsHTML}</div>`;
+    allData.appendChild(wallDiv);
+  }
+
+  // Render Column & Pillar Data
+  const rowDiv = document.createElement('div');
+  rowDiv.className = 'row gy-3';
+
+  for (let column in columnData) {
+    const colDiv = document.createElement('div');
+    colDiv.className = 'col-md-4';
+
+    let pillarsHTML = '';
+
+    for (let pillar in columnData[column]) {
+      const itemsHTML = columnData[column][pillar].map(item => {
+        const span = document.createElement('span');
+        span.className = 'item';
+        span.dataset.code = item.code.toUpperCase();
+        span.dataset.name = item.name.toUpperCase();
+        span.dataset.column = column;
+        span.dataset.pillar = pillar;
+        span.innerHTML = `<strong>${item.name}</strong> (${item.code}) <br><small>${column} - ${pillar}</small>`;
+        itemElements.push(span);
+        return span.outerHTML;
+      }).join(' ');
+
+      pillarsHTML += `
+        <div class="pillar-card">
+          <strong class="custom-color"><i class="bi bi-building"></i> ${pillar}:</strong>
+          <div>${itemsHTML}</div>
+        </div>
+      `;
+    }
+
+    colDiv.innerHTML = `
+      <div>
+        <h5 class="custom-color"><i class="bi bi-columns-gap"></i> ${column}</h5>
+        ${pillarsHTML}
+      </div>
+    `;
+    rowDiv.appendChild(colDiv);
+  }
+  allData.appendChild(rowDiv);
+
+  // Search Function
+  searchInput.addEventListener("input", function() {
+    const query = this.value.trim().toUpperCase();
+    let found = false;
+
+    // Remove highlights
+    itemElements.forEach(el => el.classList.remove("highlight"));
+
+    if (query === "") {
+      result.classList.add("d-none");
+      return;
+    }
+
+    for (let el of itemElements) {
+      if (el.dataset.code === query || el.dataset.name.includes(query)) {
+        el.classList.add("highlight");
+        result.classList.remove("d-none");
+
+        let location = '';
+        if (el.dataset.wall) {
+          location = `${el.dataset.wall}`;
+        } else {
+          location = `${el.dataset.column} → ${el.dataset.pillar}`;
+        }
+
+        result.innerHTML = `<i class="bi bi-check-circle-fill text-success"></i> <strong>${el.dataset.name}</strong> (${el.dataset.code}) found in <strong>${location}</strong>`;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      result.classList.remove("d-none");
+      result.innerHTML = `<i class="bi bi-x-circle-fill text-danger"></i> <strong>${query}</strong> not found`;
+    }
+  });
+</script>
+
+</body>
+</html>

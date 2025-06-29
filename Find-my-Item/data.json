@@ -1,0 +1,156 @@
+{
+  "wallData": {
+    "North Wall": [
+      { "code": "Z19875", "name": "Jule Mule Beigh TPR + Olive Pu FB" },
+      { "code": "Z20385", "name": "TAZO" },
+      { "code": "Z19373/Z21300", "name": "Blossom Blue FB" },
+      { "code": "Z20506", "name": "GARRY PU Blk Sole" },
+      { "code": "Z18348/Z18349", "name": "Alyo-Wht+blk" },
+      { "code": "Z19570/Z19571", "name": "BRIZO Navy Sole,Blk,Wht" },
+      { "code": "Z18350/Z18351", "name": "Aloys Phlon + wht, gry, grn tpr aloy" },
+      { "code": "Z17859", "name": "Luke Pylon wht, blk sole" },
+      { "code": "Z19714", "name": "Pikacho Tpr Brown Sole" },
+      { "code": "Z08438", "name": "Jaguar blk" },
+      { "code": "Z21286", "name": "Lagosh BRN" }
+    ],
+    "South Wall": [
+      { "code": "Z20271", "name": "Flex 4U(1036) Eva Sole" },
+      { "code": "Z20510", "name": "SuperStride Pvc Blk Sole" },
+      { "code": "Z15408", "name": "Naughty Boy (IV) blk pvc sole" },
+      { "code": "Z20508", "name": "Max Pvc Blk Sole" },
+      { "code": "Z21125", "name": "Nwalk 5.0 grey" },
+      { "code": "Z17057", "name": "Carson Brough TPR Blk Sole" },
+      { "code": "Z21259", "name": "KAMET-TUPL" },
+      { "code": "Z20507", "name": "Hindi PVC Black Sole" },
+      { "code": "Z21369", "name": "Dolores 3.0 Pink Woman" },
+      { "code": "Z18276/Z21287", "name": "Mascot PE Black Sole" },
+      { "code": "Z08873", "name": "Tapan TPR Black Sole" }
+    ],
+    "East Wall": [
+      { "code": "Z22210", "name": "NP-50231-Blk PGreen" },
+      { "code": "Z21599", "name": "Diamonty-wmens TPR Honey Sole" },
+      { "code": "Z21557", "name": "DGray/N.Blu" },
+      { "code": "Z22070", "name": "Atizona Blk/Gry" },
+      { "code": "Z21124", "name": "N-walk 5.0 black" },
+      { "code": "Z22071", "name": "Don't know" },
+      { "code": "Z21482", "name": "Venta EVA Blk Sole" },
+      { "code": "Z17614", "name": "Phylon Wh+blk sole" },
+      { "code": "Z17614", "name": "KPU Knitted blk+white" },
+      { "code": "Z20282/Z21290", "name": "Stannis open blk sole" },
+      { "code": "Z20512", "name": "Arizona Blk/Gry+Eva Blk fb" },
+      { "code": "Z20382/Z20450", "name": "Logan" }
+    ],
+    "West Wall": [
+      { "code": "Z19098", "name": "Power Soft W footbed coral" },
+      { "code": "Z21074", "name": "Arizona Blk/Pgrn" },
+      { "code": "Z21150", "name": "Milano Thong Solemate Thong" },
+      { "code": "Z20235", "name": "New KRYPTON Blk Sole" },
+      { "code": "Z21893", "name": "Merge Blk Sole" },
+      { "code": "Z20173", "name": "BRYAN (Geo) Pu blk Sole" },
+      { "code": "Z21293", "name": "BRYAN (Geo) Pu blk Sole" },
+      { "code": "Z21151", "name": "Milano Toe-Ring Solemate toe Ring Pu" },
+      { "code": "W001", "name": "Item West 1" },
+      { "code": "W002", "name": "Item West 2" }
+    ]
+  },
+  "columnData": {
+    "Column A": {
+      "Pillar A1": [
+        { "code": "Z21354", "name": "Arga Thong wsl-64243 TPR sl Hny + D.beg" },
+        { "code": "Z20449", "name": "Cedric Tpr Blk Sole" },
+        { "code": "Z21556", "name": "Pune TPR Sole (hulk)" }
+      ],
+      "Pillar A2": [
+        { "code": "Z21346", "name": "Karter-phylon june sole-lt-beige" },
+        { "code": "Z21353", "name": "Arya Thong-wsl-64243" },
+        { "code": "Z20386", "name": "Varys-Language Blk Sole" }
+      ],
+      "Pillar A3": [
+        { "code": "A201", "name": "Superman" }
+      ],
+      "Pillar A4": [
+        { "code": "A201", "name": "Superman" }
+      ],
+      "Pillar A5": [
+        { "code": "Z19061", "name": "DUNE (lettuce) TPR Sole blk" },
+        { "code": "Z20401", "name": "RBL Blk Sole" },
+        { "code": "Z22058", "name": "Plasma Blk Sole" }
+      ]
+    },
+    "Column B": {
+      "Pillar B1": [
+        { "code": "Z20511", "name": "Mocassino pvc blk sole" },
+        { "code": "Z20981", "name": "Stripe navy fb" }
+      ],
+      "Pillar B2": [
+        { "code": "Z20921", "name": "Paper TPR Blk sole" },
+        { "code": "Z21302", "name": "JEM TAN" },
+        { "code": "Z19874", "name": "Jule mule blk tpr sole" }
+      ],
+      "Pillar B3": [
+        { "code": "Z20520", "name": "Comfy blue pu fb + hny TPR" },
+        { "code": "Z20912", "name": "Tony pvc Black Sole" }
+      ],
+      "Pillar B4": [
+        { "code": "Z21074", "name": "Arizona Sandel 3.0" },
+        { "code": "Z20383", "name": "Arizona TH blk/hny + eva olv fb" },
+        { "code": "Z21304", "name": "Gem blk FB" },
+        { "code": "Z21524", "name": "Dennis" }
+      ],
+      "Pillar B5": [
+        { "code": "Z18347", "name": "KR-28 / Kingston Brn" },
+        { "code": "Z20236", "name": "Kripton brn" },
+        { "code": "Z21245", "name": "Kripton brn" },
+        { "code": "B301", "name": "Spiderman" }
+      ]
+    },
+    "Column C": {
+      "Pillar C1": [
+        { "code": "Z21475", "name": "Cong Tpr Honny Sole+EVA Blk" },
+        { "code": "C102", "name": "Black Panther" }
+      ],
+      "Pillar C2": [
+        { "code": "Z20980", "name": "STRIPE Olive Fb" },
+        { "code": "Z19877", "name": "Jule Thong Black Tpr Sole + Pu Fb" },
+        { "code": "Z21298", "name": "Blossom Gray" }
+      ],
+      "Pillar C3": [
+        { "code": "Z20172", "name": "Crice EVA sole white" },
+        { "code": "Z20181", "name": "Crice PU footbed Orange" },
+        { "code": "Z20384", "name": "ARIZONA gry/nvy + eva blu fb" }
+      ],
+      "Pillar C4": [
+        { "code": "Z14349", "name": "Macho clay classic Brn sole" },
+        { "code": "Z21299", "name": "Blossom Black" },
+        { "code": "Z21111", "name": "KEMP hny with lt brn welt" }
+      ],
+      "Pillar C5": [
+        { "code": "Z14348", "name": "Macho Clay blk pvc sole" },
+        { "code": "Z19096", "name": "power Soft w eva sole" },
+        { "code": "Z19097", "name": "Power Soft w Footbed drk gray" },
+        { "code": "C301", "name": "Vision" }
+      ]
+    },
+    "Column D": {
+      "Pillar D1": [
+        { "code": "Z19878", "name": "Jule Thong beig Sl,olive" },
+        { "code": "Z21111", "name": "KEMP TPR hny white with LT.brn welt" }
+      ],
+      "Pillar D2": [
+        { "code": "Z01953", "name": "kr-28/Kingston blk pu sole" },
+        { "code": "Z21283", "name": "kr-28/Kingston blk pu sole" },
+        { "code": "Z01898", "name": "Bangkok t/t pu sole" },
+        { "code": "Z21281", "name": "Bangkok t/t pu sole" }
+      ],
+      "Pillar D3": [
+        { "code": "Z21764", "name": "Celina sole wht - cleo" },
+        { "code": "Z19582", "name": "Anjali Aroma pe Tan sole" },
+        { "code": "Z21288", "name": "Anjali Aroma pe Tan sole" }
+      ],
+      "Pillar D4": [
+        { "code": "Z20519", "name": "Compy blk fb+olive tpr sole" },
+        { "code": "D301", "name": "Spiderman" }
+      ]
+    }
+  }
+}
